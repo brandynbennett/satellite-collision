@@ -22,12 +22,20 @@ defmodule SatelliteCollision do
     |> will_collide?(threshold)
   end
 
-  def will_collide?(satellites, threshold) when is_list(satellites) do
-    Enum.any?(satellites, fn satellite1 ->
-      Enum.any?(List.delete(satellites, satellite1), fn satellite2 ->
+  def will_collide?([], _threshold), do: false
+
+  def will_collide?([satellite1 | other_satellites] = satellites, threshold)
+      when is_list(satellites) do
+    collision? =
+      Enum.any?(other_satellites, fn satellite2 ->
         will_collide?(satellite1, satellite2, threshold)
       end)
-    end)
+
+    if collision? do
+      true
+    else
+      will_collide?(other_satellites, threshold)
+    end
   end
 
   def will_collide?(satellite1, satellite2, threshold) do
