@@ -1,8 +1,7 @@
 defmodule SatelliteCollisionTest do
   use ExUnit.Case
-  doctest SatelliteCollision
 
-  test "greets the world" do
-    assert SatelliteCollision.hello() == :world
+  test "will_collide? false if satellites wont collide" do
+    assert SatelliteCollision.will_collide?() == false
   end
 end

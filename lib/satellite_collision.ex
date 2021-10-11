@@ -1,18 +1,11 @@
 defmodule SatelliteCollision do
   @moduledoc """
-  Documentation for `SatelliteCollision`.
+  Determine if satellites will collide
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> SatelliteCollision.hello()
-      :world
-
   """
-  def hello do
-    :world
+  def will_collide?() do
+    false
   end
 end
