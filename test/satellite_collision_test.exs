@@ -61,4 +61,29 @@ defmodule SatelliteCollisionTest do
 
     assert SatelliteCollision.will_collide?(satellites, 700) == true
   end
+
+  test "will_collide? false if no satellites will collide" do
+    satellites = [
+      %Satellite{
+        eccentricity: 0.0002224,
+        height: 475.4848672428061,
+        latitude: -27.73707947914896,
+        longitude: -97.17265433167117
+      },
+      %Satellite{
+        eccentricity: 0.0003191,
+        height: 556.0281731621435,
+        latitude: -49.29999437670813,
+        longitude: 50.00526589666098
+      },
+      %Satellite{
+        eccentricity: 0.0003191,
+        height: 408.25189267837504,
+        latitude: -4.444904136046365,
+        longitude: 115.67730280679655
+      }
+    ]
+
+    assert SatelliteCollision.will_collide?(satellites, 700) == false
+  end
 end
