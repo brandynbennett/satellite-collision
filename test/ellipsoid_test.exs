@@ -1,4 +1,4 @@
-defmodule SatelliteCollisionTest do
+defmodule EllipsoidTest do
   use ExUnit.Case
 
   test "to_cartesian converts ellipsoid to cartesian" do
