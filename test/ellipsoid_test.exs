@@ -9,6 +9,6 @@ defmodule SatelliteCollisionTest do
              longitude: -97.17265433167117
            }
            |> Ellipsoid.to_cartesian() ==
-             %{x: 6_378_788.3387902, y: 6_378_787.6845013, z: -3_264_161.1596630514}
+             %Point{x: 6_378_788.3387902, y: 6_378_787.6845013, z: -3_264_161.1596630514}
   end
 end

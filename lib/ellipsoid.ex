@@ -5,7 +5,7 @@ defmodule Ellipsoid do
   @earth_semimajor_axis 6_378_137
 
   def to_cartesian(%Ellipsoid{} = ellipsoid) do
-    %{x: x(ellipsoid), y: y(ellipsoid), z: z(ellipsoid)}
+    %Point{x: x(ellipsoid), y: y(ellipsoid), z: z(ellipsoid)}
   end
 
   defp x(ellipsoid) do
