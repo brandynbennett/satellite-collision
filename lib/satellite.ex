@@ -1,10 +1,10 @@
-defmodule Ellipsoid do
+defmodule Satellite do
   import Math, only: [sqrt: 1, sin: 1, cos: 1, pow: 2]
   defstruct latitude: 0, longitude: 0, eccentricity: 0, height: 0
 
   @earth_semimajor_axis 6_378_137
 
-  def to_cartesian(%Ellipsoid{} = ellipsoid) do
+  def to_cartesian(%Satellite{} = ellipsoid) do
     %Point{x: x(ellipsoid), y: y(ellipsoid), z: z(ellipsoid)}
   end
 
@@ -23,7 +23,7 @@ defmodule Ellipsoid do
     ((1 - ellipsoid.eccentricity) * n + ellipsoid.height) * sin(ellipsoid.latitude)
   end
 
-  defp prime_vertical_radius(%Ellipsoid{eccentricity: eccentricity, latitude: latitude}) do
+  defp prime_vertical_radius(%Satellite{eccentricity: eccentricity, latitude: latitude}) do
     @earth_semimajor_axis / sqrt(1 - eccentricity * pow(sin(latitude), 2))
   end
 end
